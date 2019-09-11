@@ -40,17 +40,18 @@ public class Student {
     //create n number of students
 
 
-    //view balance
+
+    //pay tuition
+    public void payBalance(){
+        tuitionBalance = new Payment().makePayment(tuitionBalance);
+    }
+
+    //get balance
     public int getTuitionBalance(){
         return tuitionBalance;
     }
-    //pay tuition
-    public void payBalance(int amount){
-        tuitionBalance -= amount;
-        System.out.println(NumberFormat.getCurrencyInstance().format(amount) +
-                " paid: , New Balance: " +
-                NumberFormat.getCurrencyInstance().format(tuitionBalance));
-    }
+
+
     //show status
     public void showStatus(){
         System.out.println("-------------------");

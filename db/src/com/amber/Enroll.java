@@ -15,7 +15,7 @@ public class Enroll implements I_Enroll {
             System.out.print("Enter course to enroll or Q to quite: ");
             String course = scan.nextLine().toUpperCase();
             if(course.equals("Q")) break;
-            courses = courses + "\n" + course ;
+            courses = courses + " \n \t" + course ;
             tuition();
         }
         return courses;
