@@ -1,5 +1,6 @@
 package com.amber;
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Student {
@@ -18,7 +19,7 @@ public class Student {
         setStudentId();
 
     }
-
+    // create student id with static variable
     private void setStudentId(){
         id++;
         this.studentId = gradeYear + "" + id;
@@ -27,7 +28,7 @@ public class Student {
         return studentId;
     }
 
-    //enroll
+    //enroll and set all variables inside of student
     public void enroll(){
         var enroll = new Enroll();
         this. courses = enroll.enroll();
@@ -38,13 +39,40 @@ public class Student {
 
     //create n number of students
 
-    //generate id
-
-
 
     //view balance
-
+    public int getTuitionBalance(){
+        return tuitionBalance;
+    }
     //pay tuition
-
+    public void payBalance(int amount){
+        tuitionBalance -= amount;
+        System.out.println(NumberFormat.getCurrencyInstance().format(amount) +
+                " paid: , New Balance: " +
+                NumberFormat.getCurrencyInstance().format(tuitionBalance));
+    }
     //show status
+    public void showStatus(){
+        System.out.println("-------------------");
+        System.out.println("Name: " + fullName);
+        System.out.println("Student ID: " + studentId);
+        System.out.println("Grade Level: " + stringGrade());
+        System.out.println("Courses Enrolled: " + courses);
+        System.out.println("Tuition Balance: " +
+                NumberFormat.getCurrencyInstance().format(tuitionBalance));
+        System.out.println("---------------------");
+    }
+
+    //deciding what grade they are in based on number
+    private String stringGrade(){
+        String gradeLevel;
+                switch(gradeYear){
+            case 1:  gradeLevel = "Freshman"; break;
+            case 2:  gradeLevel = "Sophomore"; break;
+            case 3:  gradeLevel = "Junior"; break;
+            case 4:  gradeLevel = "Senior"; break;
+            default: gradeLevel = "Withdrawn";
+        }
+        return gradeLevel;
+    }
 }

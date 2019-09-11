@@ -14,6 +14,6 @@ public class AskName implements I_AskName {
         Scanner last = new Scanner(System.in);
         System.out.print("Last name? ");
         this.lastName = last.nextLine();
-        return firstName + " " + lastName;
+        return firstName.toUpperCase() + " " + lastName.toUpperCase();
     }
 }
